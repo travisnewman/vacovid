@@ -1,0 +1,6 @@
+# Basic stuff if using intelliJ software or macOS
+.DS_Store
+.editorconfig
+.idea/
+
+config.js*
