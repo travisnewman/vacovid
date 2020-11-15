@@ -1,0 +1,188 @@
+@charset "utf-8";
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: #2a2a2e;
+  color: #f9f9fa;
+  margin: 0;
+}
+
+.heading {
+  padding: 1rem;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.container {
+  display: flex;
+}
+
+#covid, #weather {
+  display: inline-block;
+  padding: 1rem;
+}
+
+#covid {
+  max-width: 65rem;
+}
+
+#weather {
+  width: 30rem;
+  margin-left: 1.75%;
+}
+
+.current-temp {
+  padding-left: 1rem;
+  display: inline-block;
+  font-size: 7rem;
+  vertical-align: center;
+}
+
+.forecast-day {
+  font-size: 1.5rem;
+  padding-top: .5rem;
+  display: inline-block;
+}
+
+.forecast-day:not(:first-child) {
+  margin-left: 1em;
+}
+
+.forecast-dow {
+  text-align: center;
+  font-weight: bold;
+}
+
+.forecast-icon {
+  display: inline-block;
+}
+
+.forecast-hilo {
+  margin-left: .5rem;
+  display: inline-block;
+}
+
+.monospace {
+  display: inline-block;
+  width: .4em;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 1.25rem;
+}
+
+td {
+  padding: .5rem 1rem;
+}
+
+thead th {
+  padding: .0rem 1rem .5rem 1rem;
+  border-bottom: 2px solid #f9f9fa;
+  text-align: left;
+}
+
+thead th:first-child {
+  text-align: right;
+}
+
+tbody th {
+  text-align: right;
+  padding: .5rem 1rem;
+}
+
+@media screen and (max-width: 1365px) {
+  h1, h2, #weather, #covid {
+    text-align: center;
+    margin: auto;
+  }
+  table {
+    margin: auto;
+  }
+  .container {
+    display: block;
+  }
+  #covid, #weather {
+    display: block;
+    width: calc(100% - 2em);
+    margin: unset;
+    max-width: unset;
+  }
+
+  .forecast-day {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  table {
+    width: 100%;
+  }
+
+  thead { /* Basically make this disappear */
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+  }
+
+  tbody th {
+    margin-top: 1em;
+    display: block;
+    font-size: 1.2em;
+    border-bottom: 2px solid;
+    text-align: center;
+  }
+
+  tr {
+    display: block;
+    margin-bottom: .5em;
+  }
+
+  td {
+    display: block;
+    text-align: right;
+  }
+
+  td:before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .forecast-day {
+    font-size: 95%;
+  }
+}
+
+ /*We default to dark mode, here's the light mode stuff*/
+@media (prefers-color-scheme: light) {
+  body {
+    color: #2a2a2e;
+    background: #f9f9fa;
+  }
+
+  thead th {
+    border-bottom: 2px solid #a0a0a0;
+  }
+}
